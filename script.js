@@ -1,10 +1,24 @@
 const boardSize = 24;
 const gameBoard = document.getElementById("game-board");
 const statusText = document.getElementById("status");
+const playerXInput = document.getElementById("playerX");
+const playerOInput = document.getElementById("playerO");
+const startGameButton = document.getElementById("startGame");
+const setupDiv = document.getElementById("setup");
+const gameDiv = document.getElementById("game");
+const resetGameButton = document.getElementById("resetGame");
 
-let board = Array.from({ length: boardSize }, () => Array(boardSize).fill(null));
-let currentPlayer = "X";
-let gameActive = true;
+let board, currentPlayer, gameActive, playerXName, playerOName;
+
+// Khởi tạo trò chơi
+function initGame() {
+  board = Array.from({ length: boardSize }, () => Array(boardSize).fill(null));
+  currentPlayer = "X";
+  gameActive = true;
+  gameBoard.innerHTML = ""; // Xóa bảng cũ
+  createBoard();
+  updateStatusText();
+}
 
 // Tạo bảng
 function createBoard() {
@@ -20,7 +34,7 @@ function createBoard() {
   }
 }
 
-// Xử lý sự kiện click
+// Xử lý sự kiện click ô
 function handleCellClick(event) {
   if (!gameActive) return;
 
@@ -37,7 +51,9 @@ function handleCellClick(event) {
   const winningCells = checkWin(row, col);
   if (winningCells) {
     highlightWinningCells(winningCells);
-    statusText.innerHTML = `<span style="color: ${currentPlayer === "X" ? "red" : "green"};">Người chơi ${currentPlayer} thắng!</span>`;
+    const winnerName = currentPlayer === "X" ? playerXName : playerOName;
+    const winnerColor = currentPlayer === "X" ? "red" : "green";
+    statusText.innerHTML = `Người chơi <b style="color: ${winnerColor};">${winnerName}</b> thắng!`;
     gameActive = false;
   } else if (board.flat().every(cell => cell !== null)) {
     statusText.textContent = "Hòa!";
@@ -48,10 +64,12 @@ function handleCellClick(event) {
   }
 }
 
+
 // Cập nhật thông báo trạng thái
 function updateStatusText() {
   const color = currentPlayer === "X" ? "red" : "green";
-  statusText.innerHTML = `Đến lượt người chơi <span style="color: ${color};">${currentPlayer}</span>`;
+  const playerName = currentPlayer === "X" ? playerXName : playerOName;
+  statusText.innerHTML = `Đến lượt người chơi <span style="color: ${color};"><b>${playerName}</b></span>`;
 }
 
 // Kiểm tra thắng
@@ -131,6 +149,19 @@ function highlightWinningCells(winningCells) {
   });
 }
 
-// Khởi tạo trò chơi
-createBoard();
-updateStatusText();
+// Bắt đầu trò chơi
+startGameButton.addEventListener("click", () => {
+  playerXName = playerXInput.value.trim() || "Người chơi X";
+  playerOName = playerOInput.value.trim() || "Người chơi O";
+  setupDiv.style.display = "none";
+  gameDiv.style.display = "block";
+  initGame();
+});
+
+// Chơi lại trò chơi
+resetGameButton.addEventListener("click", () => {
+  setupDiv.style.display = "block";
+  gameDiv.style.display = "none";
+  playerXInput.value = "";
+  playerOInput.value = "";
+});
