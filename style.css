@@ -140,3 +140,12 @@ body {
 #resetGame:active {
   background-color: #545b62;
 }
+
+.content-main{
+  display: flex;
+  align-items: center;
+}
+
+.content-nav{
+  margin-right: 50px;
+}
