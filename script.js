@@ -48,8 +48,8 @@ function handleCellClick(event) {
   if (previousMove) {
     previousMove.classList.remove("latest-move");
   }
-
-  // Đánh dấu nước đi mới
+  
+  // Đánh dấu nước đi
   board[row][col] = currentPlayer;
   event.target.textContent = currentPlayer;
   event.target.style.color = currentPlayer === "X" ? "red" : "green";
@@ -62,14 +62,21 @@ function handleCellClick(event) {
     const winnerColor = currentPlayer === "X" ? "red" : "green";
     statusText.innerHTML = `Người chơi <b style="color: ${winnerColor};">${winnerName}</b> thắng!`;
     gameActive = false;
+    clearInterval(timerInterval); // Dừng đếm thời gian khi trò chơi kết thúc
   } else if (board.flat().every(cell => cell !== null)) {
     statusText.textContent = "Hòa!";
     gameActive = false;
+    clearInterval(timerInterval); // Dừng đếm thời gian khi trò chơi kết thúc
   } else {
+    // Đổi lượt chơi
     currentPlayer = currentPlayer === "X" ? "O" : "X";
     updateStatusText();
+
+    // Bắt đầu đếm thời gian cho người chơi tiếp theo
+    startTimer(currentPlayer);
   }
 }
+
 
 
 // Cập nhật thông báo trạng thái
@@ -163,6 +170,7 @@ startGameButton.addEventListener("click", () => {
   setupDiv.style.display = "none";
   gameDiv.style.display = "block";
   initGame();
+  startTimer("X");
 });
 
 // Chơi lại trò chơi
@@ -171,6 +179,7 @@ resetGameButton.addEventListener("click", () => {
   gameDiv.style.display = "none";
   playerXInput.value = "";
   playerOInput.value = "";
+  resetTimer("X");
 });
 
 
@@ -196,3 +205,40 @@ toggleButton.addEventListener("click", () => {
     toggleButton.textContent = "Chuyển sang Light Mode";
   }
 });
+
+
+let timerX = 0; // Thời gian của người chơi X
+let timerO = 0; // Thời gian của người chơi O
+let timerInterval = null; // Bộ đếm thời gian
+
+function startTimer(player) {
+  clearInterval(timerInterval); // Dừng bộ đếm hiện tại
+
+  // Bắt đầu đếm thời gian cho người chơi hiện tại
+  timerInterval = setInterval(() => {
+    if (player === "X") {
+      timerX++;
+      document.getElementById("timerX").textContent = formatTime(timerX);
+    } else {
+      timerO++;
+      document.getElementById("timerO").textContent = formatTime(timerO);
+    }
+  }, 1000); // Tăng thời gian mỗi giây
+}
+
+function resetTimer(){
+  clearInterval(timerInterval);
+  timerX = 0;
+  document.getElementById("timerX").textContent = formatTime(timerX);
+  timerO = 0;
+  document.getElementById("timerO").textContent = formatTime(timerO);
+}
+
+
+function formatTime(seconds) {
+  const hrs = Math.floor(seconds / 3600);
+  const mins = Math.floor((seconds % 3600) / 60);
+  const secs = seconds % 60;
+
+  return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}

@@ -163,7 +163,6 @@ body {
   }
 }
 
-
 #theme-toggle {
   position: absolute;
   top: 10px;
@@ -192,4 +191,18 @@ body.light-mode {
 body.light-mode #toggle-mode:hover {
   background-color: #444;
   color: #f9f9f9;
+}
+
+
+#timers {
+  margin-left: 50px;
+  font-size: 16px;
+}
+
+#playerX-timer, #playerO-timer {
+  margin-bottom: 30px;
+}
+
+body.light-mode #playerX-timer, body.light-mode #playerO-timer {
+  color: #1e1e1e;
 }
