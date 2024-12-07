@@ -43,10 +43,17 @@ function handleCellClick(event) {
 
   if (board[row][col] !== null) return;
 
+  // Xóa dấu của nước đi trước đó (nếu có)
+  const previousMove = document.querySelector(".latest-move");
+  if (previousMove) {
+    previousMove.classList.remove("latest-move");
+  }
+
+  // Đánh dấu nước đi mới
   board[row][col] = currentPlayer;
   event.target.textContent = currentPlayer;
   event.target.style.color = currentPlayer === "X" ? "red" : "green";
-  event.target.classList.add("taken");
+  event.target.classList.add("taken", "latest-move");
 
   const winningCells = checkWin(row, col);
   if (winningCells) {
@@ -164,4 +171,28 @@ resetGameButton.addEventListener("click", () => {
   gameDiv.style.display = "none";
   playerXInput.value = "";
   playerOInput.value = "";
+});
+
+
+
+// Chọn nút chuyển đổi và body
+const toggleButton = document.getElementById("toggle-mode");
+const body = document.body;
+
+// Thiết lập mặc định là Dark Mode
+body.classList.add("dark-mode");
+
+// Lắng nghe sự kiện nhấn nút
+toggleButton.addEventListener("click", () => {
+  if (body.classList.contains("dark-mode")) {
+    // Chuyển sang Light Mode
+    body.classList.remove("dark-mode");
+    body.classList.add("light-mode");
+    toggleButton.textContent = "Chuyển sang Dark Mode";
+  } else {
+    // Chuyển sang Dark Mode
+    body.classList.remove("light-mode");
+    body.classList.add("dark-mode");
+    toggleButton.textContent = "Chuyển sang Light Mode";
+  }
 });
