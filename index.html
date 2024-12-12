@@ -21,7 +21,8 @@
     <label for="playerO">Người chơi O:</label>
     <input type="text" id="playerO" placeholder="Tên người chơi O">
     <br>
-    <button id="startGame">Bắt đầu trò chơi</button>
+    <button id="startGame">Bắt đầu trò chơi mới</button>
+    <button id="startGameSave">Mở lại trò chơi cũ</button>
   </div>
 
   <div id="game" style="display: none;">
@@ -29,7 +30,7 @@
       <div class="content-nav">
         <h1>Cờ Caro 24x24</h1>
         <h4>Luật chặn 2 đầu</h3>
-          <img src="./images/logo-splash.png" width="300"/>
+        <img src="./images/logo-splash.png" width="300" />
       </div>
       <div>
         <h2 id="status"></h2>
@@ -39,7 +40,26 @@
       <div id="timers">
         <div id="playerX-timer">Người chơi <span style="color: red; font-weight: bold;">X</span>: <span id="timerX">00:00:00</span> giây</div>
         <div id="playerO-timer">Người chơi <span style="color: green; font-weight: bold;">O</span>: <span id="timerO">00:00:00</span> giây</div>
+        <button class="btn" id="saveGameStart">Lưu lại ván cờ hiện tại</button>
       </div>
+    </div>
+  </div>
+
+  <div class="dialog" id="saveGameDialog">
+    <div class="form">
+      <label for="gameName">Nhập tên game:</label>
+      <input class="input" type="text" id="gameName" placeholder="Tên game cần lưu">
+      <button class="btn" id="saveGame">Lưu lại</button>
+      <button class="btn" id="closeSaveGame">Hủy</button>
+    </div>
+  </div>
+
+  <div class="dialog" id="openSaveGameDialog">
+    <div class="form">
+      <label for="listGameSave">Chọn tên game:</label>
+      <select class="input" id="listGameSave"></select>
+      <button class="btn" id="openSaveGame">Xác nhận</button>
+      <button class="btn" id="closeOpenGame">Hủy</button>
     </div>
   </div>
 
