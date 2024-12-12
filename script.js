@@ -367,7 +367,7 @@ function openGameState(){
         highlightWinningCells(winningCells);
       }
 
-      if(currentActive[0] && currentActive[1]){
+      if(currentActive[0] >= 0 && currentActive[1] >= 0 && currentActive[0] < 24 && currentActive[1] < 24){
         var rowCol = Array.from(document.querySelectorAll("[data-row], [data-col]"))
         var currentRowCol = rowCol.find(x => x.dataset.row == currentActive[0] && x.dataset.col == currentActive[1]);
         currentRowCol.classList.add("taken", "latest-move");
