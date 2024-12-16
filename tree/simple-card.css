@@ -1,5 +1,6 @@
 .simple-card {
-    width: 160px;
+    /* width: 160px; */
+    width: 250px;
     margin: 0;
     background-color: #fff;
     color: #333;
@@ -48,6 +49,13 @@
 .simple-card .vs td.score span{
     font-weight: normal;
     margin-left: 5px;
+}
+
+.simple-card .avatar{
+    border-radius: 50%;
+    border: 2px solid green;
+    width: 30px;
+    overflow: hidden;
 }
 
 .simple-card img{
