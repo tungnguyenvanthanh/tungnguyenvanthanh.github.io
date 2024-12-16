@@ -1,154 +1,131 @@
-/* Chuyển hướng từ trái -> phải sang phải -> trái */
 .left .hv-wrapper {
     display: flex;
 }
-
 .left .hv-wrapper .hv-item {
     display: flex;
-    flex-direction: row-reverse; /* Children cũng đảo ngược */
+    flex-direction: row-reverse;
     align-items: center;
 }
-
 .left .hv-wrapper .hv-item .hv-item-parent {
-    margin-left: 50px; /* Khoảng cách giữa Parent và Children */
-    margin-right: 0; /* Xóa margin-right */
+    margin-left: 50px;
+    margin-right: 0;
     margin-bottom: 0;
     position: relative;
     display: flex;
     justify-content: center;
 }
-
 .left .hv-wrapper .hv-item .hv-item-parent:after {
     position: absolute;
     content: '';
-    width: 25px; /* Đường ngang nối */
-    height: 1px; /* Độ dày */
-    left: 0; /* Nối sang bên trái */
+    width: 25px;
+    height: 1px;
+    left: 0;
     top: 50%;
     background-color: #333;
     transform: translateX(-100%);
 }
-
 .left .hv-wrapper .hv-item .hv-item-children {
     display: flex;
-    flex-direction: column; /* Các children vẫn xếp dọc */
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-end; /* Căn về bên phải */
+    align-items: flex-end;
 }
-
 .left .hv-wrapper .hv-item .hv-item-children .hv-item-child {
     position: relative;
-    padding: 5px 0; /* Khoảng cách giữa các Children */
+    padding: 5px 0;
 }
-
 .left .hv-wrapper .hv-item .hv-item-children .hv-item-child:before {
     content: '';
     position: absolute;
     background-color: #333;
     top: 50%;
-    right: -25px; /* Đường ngang nối về bên phải */
+    right: -25px;
     width: 25px;
     height: 1px;
 }
-
 .left .hv-wrapper .hv-item .hv-item-children .hv-item-child:not(:only-child):after {
     content: '';
     position: absolute;
     background-color: #333;
-    right: -25px; /* Nối bên phải */
+    right: -25px;
     top: 0;
     height: 100%;
-    width: 1px; /* Đường thẳng dọc */
+    width: 1px;
 }
-
 .left .hv-wrapper .hv-item .hv-item-children .hv-item-child:first-child:after {
     top: 50%;
     height: 50%;
 }
-
 .left .hv-wrapper .hv-item .hv-item-children .hv-item-child:last-child:after {
     top: 0;
     height: 50%;
 }
-/* ===================================================== */
-/* Chuyển hướng từ cột dọc sang hàng ngang */
 .right .hv-wrapper {
     display: flex;
-    flex-direction: row; /* Chuyển thành hàng ngang */
+    flex-direction: row;
 }
-
 .right .hv-wrapper .hv-item {
     display: flex;
-    flex-direction: row; /* Các thành phần con sắp xếp theo hàng ngang */
+    flex-direction: row;
     align-items: center;
 }
-
 .right .hv-wrapper .hv-item .hv-item-parent {
-    margin-right: 50px; /* Khoảng cách giữa Parent và Children */
-    margin-bottom: 0; /* Xóa margin-bottom */
+    margin-right: 50px;
+    margin-bottom: 0;
     position: relative;
     display: flex;
     justify-content: center;
 }
-
 .right .hv-wrapper .hv-item .hv-item-parent:after {
     position: absolute;
     content: '';
-    width: 25px; /* Đổi thành đường ngang */
-    height: 1px; /* Độ dày đường nối */
+    width: 25px;
+    height: 1px;
     right: 0;
     top: 50%;
     background-color: #333;
     transform: translateX(100%);
 }
-
 .right .hv-wrapper .hv-item .hv-item-children {
     display: flex;
-    flex-direction: column; /* Các children xếp dọc */
+    flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 }
-
 .right .hv-wrapper .hv-item .hv-item-children .hv-item-child {
     position: relative;
-    padding: 5px 0; /* Tạo khoảng cách giữa các Children */
+    padding: 5px 0;
 }
-
 .right .hv-wrapper .hv-item .hv-item-children .hv-item-child:before {
     content: '';
     position: absolute;
     background-color: #333;
     top: 50%;
-    left: -25px; /* Đường nối ngang tới Child */
+    left: -25px;
     width: 25px;
     height: 1px;
 }
-
 .right .hv-wrapper .hv-item .hv-item-children .hv-item-child:not(:only-child):after {
     content: '';
     position: absolute;
     background-color: #333;
-    left: -25px; /* Bắt đầu từ cuối đường nối ngang */
+    left: -25px;
     top: 0;
     height: 100%;
-    width: 1px; /* Đường thẳng dọc */
+    width: 1px;
 }
-
 .right .hv-wrapper .hv-item .hv-item-children .hv-item-child:first-child:after {
     top: 50%;
     height: 50%;
 }
-
 .right .hv-wrapper .hv-item .hv-item-children .hv-item-child:last-child:after {
     top: 0;
     height: 50%;
 }
-
-/* =================================================== */
 .simple-card {
     margin: 0;
     background-color: #fff;
-    color: #DE5454;
+    color: #de5454;
     padding: 20px;
     border-radius: 7px;
     border: #333 1px solid;
@@ -156,13 +133,11 @@
     text-align: center;
     box-shadow: 0 3px 6px rgba(204, 131, 103, 0.22);
 }
-
-.basic-style{
+.basic-style {
     display: flex;
     align-items: center;
 }
-
-body{
+body {
     display: flex;
     justify-content: center;
 }
