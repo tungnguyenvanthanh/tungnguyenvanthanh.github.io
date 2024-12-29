@@ -63,6 +63,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 10px;
 }
 
 #setup button:hover {
@@ -205,4 +206,66 @@ body.light-mode #toggle-mode:hover {
 
 body.light-mode #playerX-timer, body.light-mode #playerO-timer {
   color: #1e1e1e;
+}
+
+.btn {
+  background-color: #e0e0e0;
+  color: #333;
+  border: 1px solid #555;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#btn:hover {
+  background-color: #f9f9f9;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  margin-top: 5px;
+}
+
+/* Hiệu ứng khi nhập vào ô input */
+.input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+body.light-mode #btn:hover {
+  background-color: #444;
+  color: #f9f9f9;
+}
+
+.dialog{
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 50%);
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+#saveGameDialog .form{
+  width: 200px;
+  background-color: #fff;
+  padding: 15px;
+  color: #333;
+}
+
+#openSaveGameDialog .form{
+  width: 200px;
+  background-color: #fff;
+  padding: 15px;
+  color: #333;
 }
