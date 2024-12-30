@@ -47,7 +47,13 @@ function createBoard() {
 
 // Hàm xử lý khi người chơi click vào điểm (dot)
 function handleDotClick(event) {
-  const { cx, cy, id } = event.target.dataset; // Lấy thông tin điểm
+  const tag = event.target;
+
+  if(!tag.classList.contains('one-click')){
+    tag.classList.add('one-click');
+  }
+
+  const { cx, cy, id } = tag.dataset; // Lấy thông tin điểm
   selectedPoints.push({ x: +cx, y: +cy, id });
 
   // Nếu đã chọn đủ hai điểm, thử vẽ đường thẳng
@@ -61,6 +67,9 @@ function handleDotClick(event) {
     }
 
     selectedPoints = []; // Reset lựa chọn
+    document.querySelectorAll('circle').forEach(el => el.classList.remove('one-click'));
+  }else{
+
   }
 }
 
