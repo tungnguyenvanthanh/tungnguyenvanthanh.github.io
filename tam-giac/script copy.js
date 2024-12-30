@@ -86,74 +86,11 @@ function isValidLine(p1, p2) {
   return false;
 }
 
-// Lấy toàn bộ 4 điểm
-function getLineDots(p1, p2) {
-  const points = [];
-  const dx = (p2.x - p1.x) / 3; // Khoảng cách giữa các điểm
-  const dy = (p2.y - p1.y) / 3;
-
-  for (let i = 0; i <= 3; i++) {
-    const x = p1.x + i * dx;
-    const y = p1.y + i * dy;
-    const dataId = document.querySelector(`circle[cx="${x}"][cy="${y}"]`).getAttribute("data-id");
-
-    points.push({
-      x: x,
-      y: y,
-      id: dataId, // Hoặc tính toán id khác tùy thuộc vào logic
-    });
-  }
-
-  return points;
-}
-
-// truy xuất các điểm đã được nối
-function findDotsInLine(p1, p2) {
-  const lineKey = `${p1.id}-${p2.id}`;
-  const reverseKey = `${p2.id}-${p1.id}`;
-
-  for (const line of drawnLines) {
-    if (line === lineKey || line === reverseKey) {
-      return line.split("-").map(dotId => {
-        // Tìm dot tương ứng từ danh sách điểm
-        return points.find(dot => dot.id === dotId);
-      });
-    }
-  }
-  return [];
-}
-
-// Lưu id liên kết của toàn bộ điểm
-function getAdjacentPairs(lineDots) {
-  // Sắp xếp mảng trước
-  const sortedDots = sortLineDotsById(lineDots);
-
-  // Tạo mảng kết quả
-    const result = [];
-    for (let i = 0; i < sortedDots.length - 1; i++) {
-        const pair = `${sortedDots[i].id}-${sortedDots[i + 1].id}`;
-        result.push(pair);
-    }
-    return result;
-}
-
-function sortLineDotsById(lineDots) {
-  return lineDots.sort((a, b) => {
-      // Trích xuất số đầu tiên của id và chuyển thành số nguyên
-      const numA = parseInt(a.id.split('-')[0]);
-      const numB = parseInt(b.id.split('-')[0]);
-      return numA - numB;
-  });
-}
-
 // Hàm vẽ đường thẳng
 function drawLine(p1, p2) {
-  const lineDots = getLineDots(p1, p2); // Lấy toàn bộ 4 điểm
+  const lineKey = `${p1.id}-${p2.id}`;
+  drawnLines.add(lineKey);
 
-  // Lưu id liên kết của toàn bộ điểm
-  getAdjacentPairs(lineDots).forEach((x) => drawnLines.add(x));
-
-   // Vẽ đường thẳng
   const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
   line.setAttribute("x1", p1.x);
   line.setAttribute("y1", p1.y);
@@ -179,17 +116,11 @@ function checkForTriangles() {
 
 // Kiểm tra tam giác hợp lệ
 function isTriangle(p1, p2, p3) {
-
-  const dots = [p1, p2, p3];
-  // Sắp xếp mảng trước
-  const sortedDots = sortLineDotsById(dots);
-
   const keys = [
     `${p1.id}-${p2.id}`,
     `${p2.id}-${p3.id}`,
     `${p3.id}-${p1.id}`,
   ];
-
   return keys.every(key => drawnLines.has(key) || drawnLines.has(key.split("-").reverse().join("-")));
 }
 
@@ -201,7 +132,7 @@ function colorTriangle(p1, p2, p3) {
   const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
   polygon.setAttribute("points", `${p1.x},${p1.y} ${p2.x},${p2.y} ${p3.x},${p3.y}`);
   polygon.setAttribute("class", `triangle player${currentPlayer + 1}`);
-  gameBoard.prepend(polygon);
+  gameBoard.appendChild(polygon);
 
   triangles.push(triangleKey);
   remainingMoves[currentPlayer] -= 1; // Trừ quân cờ
