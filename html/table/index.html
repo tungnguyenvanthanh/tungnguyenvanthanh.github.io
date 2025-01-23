@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Header and Sticky Column Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .table-container {
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .table-body {
+      max-height: 300px; 
+      overflow-x: auto;
+      overflow-y: auto; 
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 1000px;
+    }
+
+    thead {
+      background-color: #f4f4f4;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    thead th {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tbody td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th:first-child, td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 3;
+      background-color: #f9f9f9;
+    }
+
+    th:first-child {
+      border-right: 1px solid #ddd;
+    }
+
+    td:first-child {
+      border-right: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="table-container">
+    <div class="table-body">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>Job</th>
+            <th>Company</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>John Doe</td>
+            <td>25</td>
+            <td>New York</td>
+            <td>Developer</td>
+            <td>Tech Corp</td>
+            <td>123-456-7890</td>
+            <td>john@example.com</td>
+            <td>USA</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jane Smith</td>
+            <td>30</td>
+            <td>London</td>
+            <td>Designer</td>
+            <td>Creative Studio</td>
+            <td>987-654-3210</td>
+            <td>jane@example.com</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <!-- Add more rows for testing -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
