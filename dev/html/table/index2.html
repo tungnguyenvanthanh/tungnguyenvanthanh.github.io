@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Sticky Columns - Fixed</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .table-container {
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .table-body {
+      max-height: 300px;
+      overflow-x: auto;
+      overflow-y: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 1000px;
+    }
+
+    thead {
+      background-color: #bcbcbc;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    thead th {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+    }
+
+    tbody td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .sticky-column {
+      position: sticky;
+      z-index: 3;
+      background-color: #bcbcbc;
+      border-right: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="table-container">
+    <div class="table-body">
+      <table>
+        <thead>
+          <tr>
+            <th class="sticky-column">#</th>
+            <th class="sticky-column">Name</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>Job</th>
+            <th>Company</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="sticky-column">1</td>
+            <td class="sticky-column">John Doe</td>
+            <td>25</td>
+            <td>New York</td>
+            <td>Developer</td>
+            <td>Tech Corp</td>
+            <td>123-456-7890</td>
+            <td>john@example.com</td>
+            <td>USA</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">2</td>
+            <td class="sticky-column">Jane Smith</td>
+            <td>30</td>
+            <td>London</td>
+            <td>Designer</td>
+            <td>Creative Studio</td>
+            <td>987-654-3210</td>
+            <td>jane@example.com</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td class="sticky-column">3</td>
+            <td class="sticky-column">David Brown</td>
+            <td>35</td>
+            <td>Paris</td>
+            <td>Manager</td>
+            <td>Business Inc</td>
+            <td>555-123-4567</td>
+            <td>david@example.com</td>
+            <td>France</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function setStickyColumnPositions() {
+      const table = document.querySelector("table");
+      const stickyColumns = Array.from(table.querySelectorAll(".sticky-column"));
+
+      const columnOffsets = [];
+      
+      stickyColumns.forEach((column, index) => {
+        const cells = table.querySelectorAll(
+          `th:nth-child(${index + 1}), td:nth-child(${index + 1})`
+        );
+
+        const columnWidth = column.offsetWidth;
+
+        cells.forEach((cell) => {
+          cell.style.left = `${columnOffsets[index] || 0}px`;
+        });
+
+        columnOffsets[index + 1] = (columnOffsets[index] || 0) + columnWidth;
+      });
+    }
+
+    window.addEventListener("load", setStickyColumnPositions);
+    window.addEventListener("resize", setStickyColumnPositions); 
+  </script>
+</body>
+</html>
