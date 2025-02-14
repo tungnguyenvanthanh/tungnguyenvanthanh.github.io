@@ -2,68 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cờ Caro</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OnlineBooking</title>
+    <base href="/" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/spacing.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="OnlineBooking.styles.css" rel="stylesheet" />
 </head>
 
 <body>
-  <div id="theme-toggle">
-    <button id="toggle-mode">Chuyển sang Light Mode</button>
-  </div>
-
-  <div id="setup">
-    <h2>Nhập tên người chơi</h2>
-    <label for="playerX">Người chơi X:</label>
-    <input type="text" id="playerX" placeholder="Tên người chơi X">
-    <br>
-    <label for="playerO">Người chơi O:</label>
-    <input type="text" id="playerO" placeholder="Tên người chơi O">
-    <br>
-    <button id="startGame">Bắt đầu trò chơi mới</button>
-    <button id="startGameSave">Mở lại trò chơi cũ</button>
-  </div>
-
-  <div id="game" style="display: none;">
-    <div class="content-main">
-      <div class="content-nav">
-        <h1>Cờ Caro 24x24</h1>
-        <h4>Luật chặn 2 đầu</h4>
-        <img src="./images/logo-splash.png" width="300" />
-      </div>
-      <div>
-        <h2 id="status"></h2>
-        <div id="game-board"></div>
-        <button id="resetGame">Chơi lại</button>
-      </div>
-      <div id="timers">
-        <div id="playerX-timer">Người chơi <span style="color: red; font-weight: bold;">X</span>: <span id="timerX">00:00:00</span> giây</div>
-        <div id="playerO-timer">Người chơi <span style="color: green; font-weight: bold;">O</span>: <span id="timerO">00:00:00</span> giây</div>
-        <button class="btn" id="saveGameStart">Lưu lại ván cờ hiện tại</button>
-      </div>
+    <div id="app">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
     </div>
-  </div>
 
-  <div class="dialog" id="saveGameDialog">
-    <div class="form">
-      <label for="gameName">Nhập tên game:</label>
-      <input class="input" type="text" id="gameName" placeholder="Tên game cần lưu">
-      <button class="btn" id="saveGame">Lưu lại</button>
-      <button class="btn" id="closeSaveGame">Hủy</button>
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
     </div>
-  </div>
-
-  <div class="dialog" id="openSaveGameDialog">
-    <div class="form">
-      <label for="listGameSave">Chọn tên game:</label>
-      <select class="input" id="listGameSave"></select>
-      <button class="btn" id="openSaveGame">Xác nhận</button>
-      <button class="btn" id="closeOpenGame">Hủy</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
 </body>
 
 </html>
