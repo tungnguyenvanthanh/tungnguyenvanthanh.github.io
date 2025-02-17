@@ -1,0 +1,8 @@
+@import '_content/MudThemeLibrary/MudThemeLibrary.5eco2oykuw.bundle.scp.css';
+
+/* /Pages/CoCaro/CoCaroPlayingPage.razor.rz.scp.css */
+.content-game-board[b-gil9k3vgqg]{overflow:hidden}.content-game-board .game-board[b-gil9k3vgqg]{display:inline-grid;position:relative;grid-gap:0;justify-content:center;box-shadow:0 0px 10px rgba(0,0,0,.5)}.content-game-board .game-board .cell[b-gil9k3vgqg]{width:30px;height:30px;border:1px solid #ddd;display:flex;justify-content:center;align-items:center;font-size:20px;font-weight:bold;background-color:#fff;cursor:pointer;transition:background-color .3s ease}.content-game-board .game-board .cell.taken[b-gil9k3vgqg]{cursor:not-allowed}.content-game-board .game-board .cell:hover:not(.taken)[b-gil9k3vgqg]{background-color:#f0f8ff}.playing-user[b-gil9k3vgqg]{width:100px}
+/* /Pages/Components/AvatarRankComponent.razor.rz.scp.css */
+.avatar-rank[b-p6i00qz67i]{position:relative}[b-p6i00qz67i] .lottie-svg{position:absolute;width:300%;height:300%;top:-102%;left:-100%}
+/* /Pages/Me/_MeNavComponent.razor.rz.scp.css */
+[b-sy1z0ahij2].avatar-content{margin-top:-100px;position:relative}[b-sy1z0ahij2].avatar-content .avatar .mud-avatar{width:120px;height:120px}[b-sy1z0ahij2].avatar-content .mud-badge-root .mud-badge{cursor:pointer}[b-sy1z0ahij2].avatar-content .upload-content{position:absolute;bottom:-7px;left:50%}
