@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cờ Chó</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        svg {
+            width: auto;
+            height: auto;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .piece, .location {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Cờ chó</h1>
+    <svg id="board" viewBox="-20 -20 340 340" preserveAspectRatio="xMidYMid meet">
+        <!-- Vẽ hình vuông viền -->
+        <rect x="0" y="0" width="300" height="300" stroke="black" stroke-width="2" fill="white" />
+        
+        <!-- Vẽ đường chéo -->
+        <line x1="0" y1="0" x2="300" y2="300" stroke="black" stroke-width="2" />
+        <line x1="300" y1="0" x2="0" y2="300" stroke="black" stroke-width="2" />
+        
+        <!-- Chó -->
+        <circle cx="50" cy="150" r="15" fill="black" class="piece" data-player="dog" />
+        
+        <!-- Tâm hình vuông và 4 góc hình vuông -->
+        <circle cx="150" cy="150" r="15" fill="white" stroke="black" stroke-width="1" class="location" />
+        <circle cx="0" cy="0" r="15" fill="white" stroke="black" stroke-width="1" class="location" />
+        <circle cx="0" cy="300" r="15" fill="white" stroke="black" stroke-width="1" class="location" />
+        <circle cx="300" cy="0" r="15" fill="white" stroke="black" stroke-width="1" class="location" />
+        <circle cx="300" cy="300" r="15" fill="white" stroke="black" stroke-width="1" class="location" />
+    
+        <!-- Quân cờ -->
+        <circle cx="0" cy="0" r="15" fill="blue" class="piece" data-player="A" />
+        <circle cx="0" cy="300" r="15" fill="blue" class="piece" data-player="A" />
+        <circle cx="300" cy="0" r="15" fill="red" class="piece" data-player="B" />
+        <circle cx="300" cy="300" r="15" fill="red" class="piece" data-player="B" />
+    </svg>
+    
+
+    <script type="text/javascript" src="./script.js"></script>
+</body>
+</html>
