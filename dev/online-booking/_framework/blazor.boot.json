@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "OnlineBooking",
   "resources": {
-    "hash": "sha256-mRJcs5VUvs1jsmOHVMCJwiHgePwYstz00KOfEmc9HSI=",
+    "hash": "sha256-I7OjMqtLrUWouT13/ipHVtD1av1LESiHpxOOWM5pm40=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-xNQsYHtL1vcbrVTHDZAwJM4WovpoyjsrM2C6FQ8cW1w="
     },
@@ -42,7 +42,7 @@
       "Microsoft.JSInterop.wasm": "sha256-/gpmLtjs2Urf5nrxikJKX/OvlVYqNi0+oihuMT7dSqI=",
       "Microsoft.JSInterop.WebAssembly.wasm": "sha256-DwdIH1ydDREMe+gT+NPaWxTUdDh/bzbriY2XoySGIo4=",
       "MudBlazor.wasm": "sha256-ODDf4S4TX4NB+f9GP8V2Lg7JglZxP59Y9AW4T99DfK8=",
-      "OnlineBooking.wasm": "sha256-60puktFz3D1Q56ZJ6qjgp1Y1n1MrSPlPT7MiY2gFTpE=",
+      "OnlineBooking.wasm": "sha256-uXbrmU05jQupNWr9Q6MZX0GRva/IS9WxxMhd8V4tFkQ=",
       "System.Collections.Concurrent.wasm": "sha256-bueL9VDJcibaNTyRQNgGy44jaTbhzJEgPjPCjTposHA=",
       "System.Collections.Immutable.wasm": "sha256-Hxds6ZNPPstKZ12tvWfL/HZmvZwjk80HUlTp5uxrInI=",
       "System.Collections.wasm": "sha256-Grw0HJPD2sqruROY/m1zndiVq9jpeDRsHf3B6QvClCw=",
