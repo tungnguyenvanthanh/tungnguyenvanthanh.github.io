@@ -1,0 +1,82 @@
+$viewport-sizes: (25, 50, 75, 85, 100, auto);
+$breakpoints: ( xs: 0px, sm: 600px, md: 960px, lg: 1280px, xl: 1920px, xxl: 2560px );
+
+@each $size in $viewport-sizes {
+    .w-#{$size} {
+        width: #{$size + if($size == auto, "", "%")} !important;
+    }
+
+    .mw-#{$size} {
+        max-width: #{$size + if($size == auto, "", "%")} !important;
+    }
+
+    .h-#{$size} {
+        height: #{$size + if($size == auto, "", "%")} !important;
+    }
+
+    .mh-#{$size} {
+        max-height: #{$size + if($size == auto, "", "%")} !important;
+    }
+}
+
+@each $breakpoint, $min-width in $breakpoints {
+    @media (min-width: #{$min-width}) {
+        @each $size in $viewport-sizes {
+            .w-#{$breakpoint}-#{$size} {
+                width: #{$size + if($size == auto, "", "%")} !important;
+            }
+        }
+    }
+}
+
+$alignments: (left, center, right, justify, start, end);
+
+@each $align in $alignments {
+    .text-#{$align} {
+        text-align: $align;
+    }
+}
+
+$white-spaces: (normal, nowrap, pre, pre-line, pre-wrap);
+
+@each $ws in $white-spaces {
+    .white-space-#{$ws} {
+        white-space: $ws;
+    }
+}
+
+$rotations: (0, 45, 90, 180, 360);
+$flips: ( "horizontal": scaleX(-1), "vertical": scaleY(-1), "both": scale(-1, -1) );
+
+@each $angle in $rotations {
+    .transform-rotate-#{$angle} {
+        transform: rotate(#{$angle}deg);
+    }
+}
+
+@each $name, $value in $flips {
+    .flip-#{$name} {
+        transform: $value;
+    }
+
+    @each $angle in $rotations {
+        .flip-#{$name}-rotate-#{$angle} {
+            transform: $value rotate(#{$angle}deg);
+        }
+    }
+}
+
+.min-vh-100 {
+    min-height: 100vh !important;
+}
+
+.bg-none {
+    background: none !important;
+}
+
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
