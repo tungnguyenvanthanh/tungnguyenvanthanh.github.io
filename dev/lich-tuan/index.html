@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Tuần</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/locale/en-gb.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .calendar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .week {
+            display: flex;
+            gap: 10px;
+        }
+        .day {
+            width: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .today {
+            background-color: #ffcc00;
+        }
+        .selected {
+            background-color: #007bff;
+            color: white;
+        }
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 id="month-year-display"></h2>  <!-- Hiển thị tháng/năm -->
+    <div class="calendar">
+        <button onclick="changeWeek(-1)">◀</button>
+        <div class="week" id="week-container"></div>
+        <button onclick="changeWeek(1)">▶</button>
+    </div>
+    <h3 id="selected-date-display">Click vào ngày để xem chi tiết</h3> <!-- Hiển thị ngày/tháng/năm đã chọn -->
+
+    <script>
+        let currentDate = new Date();
+        let selectedDate = null;
+
+        function getWeekDays(date) {
+            let startOfWeek = new Date(date);
+            let day = startOfWeek.getDay();
+            let diff = day === 0 ? -6 : 1 - day; // Điều chỉnh nếu là Chủ Nhật
+            startOfWeek.setDate(startOfWeek.getDate() + diff);
+
+            let weekDays = [];
+            for (let i = 0; i < 7; i++) {
+                let newDate = new Date(startOfWeek);
+                newDate.setDate(startOfWeek.getDate() + i);
+                weekDays.push(newDate);
+            }
+            return weekDays;
+        }
+
+        function formatMonthYear(weekDays) {
+            let months = [...new Set(weekDays.map(d => d.getMonth() + 1))];
+            let years = [...new Set(weekDays.map(d => d.getFullYear()))];
+
+            let monthText = months.length > 1 ? `${months[0]} - ${months[1]}` : months[0];
+            let yearText = years.length > 1 ? `${years[0]} - ${years[1]}` : years[0];
+
+            return `${monthText}/${yearText}`;
+        }
+
+        function formatDateString(date) {
+            return moment(date).locale('en').format('dddd, MMMM D, YYYY');
+        }
+
+        function renderWeek() {
+            let weekContainer = document.getElementById("week-container");
+            let monthYearDisplay = document.getElementById("month-year-display");
+            weekContainer.innerHTML = "";
+            let weekDays = getWeekDays(currentDate);
+            let today = new Date().toDateString();
+
+            // Cập nhật tiêu đề tháng/năm
+            monthYearDisplay.textContent = formatMonthYear(weekDays);
+
+            weekDays.forEach(date => {
+                let div = document.createElement("div");
+                div.classList.add("day");
+                if (date.toDateString() === today) {
+                    div.classList.add("today");
+                }
+                if (selectedDate && date.toDateString() === selectedDate.toDateString()) {
+                    div.classList.add("selected");
+                }
+                div.textContent = `${date.getDate()}/${date.getMonth() + 1}`;
+                div.onclick = () => selectDate(date);
+                weekContainer.appendChild(div);
+            });
+        }
+
+        function changeWeek(direction) {
+            currentDate.setDate(currentDate.getDate() + direction * 7);
+            renderWeek();
+        }
+
+        function selectDate(date) {
+            selectedDate = date;
+            document.getElementById("selected-date-display").textContent = formatDateString(date);
+            renderWeek();
+        }
+
+        renderWeek();
+    </script>
+
+</body>
+</html>
