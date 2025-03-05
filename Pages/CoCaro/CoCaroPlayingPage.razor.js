@@ -1,49 +1,36 @@
 ﻿export let CoCaro = function () {
     let draggableWithConstraints = (element, container) => {
-        if (!element || !container) {
-            console.error("Draggable element or container is not defined.");
-            return;
-        }
+        $(function () {
+            $(element).draggable({
+                drag: function (event, ui) {
+                    // Cho phép kéo element sang trái, nhưng cạnh phải vẫn phải nằm trong container.
+                    let maxLeft = -($(element).outerWidth() - 90);
+                    // Cho phép kéo sang phải, nhưng cạnh trái không được ra ngoài container.
+                    let maxRight = $(container).width() - 90;
+                    // Cho phép kéo lên trên, nhưng cạnh dưới vẫn phải nằm trong container.
+                    let maxTop = -($(element).outerHeight() - 90);
+                    // Cho phép kéo xuống, nhưng cạnh trên không được ra ngoài container.
+                    let maxBottom = $(container).height() - 90;
 
-        let offsetX = 0;
-        let offsetY = 0;
-        let isDragging = false;
-
-        element.addEventListener("mousedown", function (event) {
-            isDragging = true;
-            offsetX = event.clientX - element.getBoundingClientRect().left;
-            offsetY = event.clientY - element.getBoundingClientRect().top;
-        });
-
-        document.addEventListener("mousemove", function (event) {
-            if (!isDragging) return;
-
-            const containerRect = container.getBoundingClientRect();
-            const elementRect = element.getBoundingClientRect();
-
-            // Tính toán vị trí mới
-            let newLeft = event.clientX - containerRect.left - offsetX;
-            let newTop = event.clientY - containerRect.top - offsetY;
-
-            // Tính toán giới hạn
-            const minLeft = -(elementRect.width - 50); // Đảm bảo 50px vẫn hiển thị bên trái
-            const minTop = -(elementRect.height - 50); // Đảm bảo 50px vẫn hiển thị bên trên
-            const maxLeft = containerRect.width - 100; // Đảm bảo không vượt quá biên phải
-            const maxTop = containerRect.height - 100; // Đảm bảo không vượt quá biên dưới
-
-            // Áp dụng giới hạn
-            if (newLeft < minLeft) newLeft = minLeft;
-            if (newTop < minTop) newTop = minTop;
-            if (newLeft > maxLeft) newLeft = maxLeft;
-            if (newTop > maxTop) newTop = maxTop;
-
-            // Cập nhật vị trí phần tử
-            element.style.left = newLeft + "px";
-            element.style.top = newTop + "px";
-        });
-
-        document.addEventListener("mouseup", function () {
-            isDragging = false;
+                    // Giới hạn vị trí kéo
+                    // Nếu phần tử bị kéo quá sang trái, chặn nó lại.
+                    if (ui.position.left < maxLeft) {
+                        ui.position.left = maxLeft;
+                    }
+                    // Nếu kéo quá sang phải, chặn nó lại.
+                    if (ui.position.left > maxRight) {
+                        ui.position.left = maxRight;
+                    }
+                    // Nếu kéo quá lên trên, chặn nó lại.
+                    if (ui.position.top < maxTop) {
+                        ui.position.top = maxTop;
+                    }
+                    // Nếu kéo quá xuống dưới, chặn nó lại.
+                    if (ui.position.top > maxBottom) {
+                        ui.position.top = maxBottom;
+                    }
+                }
+            });
         });
     }
 
