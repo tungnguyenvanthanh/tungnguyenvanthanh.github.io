@@ -44,6 +44,7 @@ function loadCSS(url, location) {
 const scriptsToLoadHead = [
     "_content/MudThemeLibrary/js/jquery/jquery-3.7.1.js",
     "_content/MudThemeLibrary/js/jquery/jquery-ui.js",
+    "_content/MudThemeLibrary/js/jquery/jquery.ui.touch-punch.min.js",
 ];
 
 const scriptsToLoadBody = [
