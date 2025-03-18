@@ -41,6 +41,10 @@ function loadCSS(url, location) {
 }
 
 // Danh sách file JS cần tải
+const scriptsDefault = [
+    "_content/MudBlazor/MudBlazor.min.js",
+];
+
 const scriptsToLoadHead = [
     "_content/MudThemeLibrary/js/jquery/jquery-3.7.1.js",
     "_content/MudThemeLibrary/js/jquery/jquery-ui.js",
@@ -48,7 +52,6 @@ const scriptsToLoadHead = [
 ];
 
 const scriptsToLoadBody = [
-    "_content/MudBlazor/MudBlazor.min.js",
     "_content/CurrieTechnologies.Razor.SweetAlert2/sweetAlert2.min.js",
     "_content/MudThemeLibrary/plugins/lottie/lottie.min.js",
     "_content/MudThemeLibrary/plugins/cropperjs/cropper.js",
@@ -73,6 +76,10 @@ const stylesToLoad = [
 
 // Tải các file theo thứ tự
 (async function () {
+    for (let script of scriptsDefault) {
+        await loadScript(script, "head");
+        console.log(`${script} loaded`);
+    }
     for (let script of scriptsToLoadHead) {
         await loadScript(script, "head");
         console.log(`${script} loaded`);
