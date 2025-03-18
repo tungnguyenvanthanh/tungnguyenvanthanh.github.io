@@ -38,9 +38,14 @@ async function loadAsset(asset) {
     });
 }
 
-(async function () {
+// Đảm bảo chỉ gọi Blazor.start() một lần
+async function loadAllAssetsAndStartBlazor() {
     for (let asset of assetsToLoad) {
         await loadAsset(asset);
         console.log(`${asset.url} loaded`);
     }
-})();
+    console.log("All assets loaded...");
+}
+
+// Chờ tài nguyên được tải xong rồi mới khởi động Blazor
+window.onload = loadAllAssetsAndStartBlazor;
