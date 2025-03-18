@@ -60,10 +60,10 @@ const scriptsToLoadBody = [
 const stylesToLoad = [
     "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
     "https://use.fontawesome.com/releases/v5.14.0/css/all.css",
-    "_content/MudBlazor/MudBlazor.min.css",
     "_content/MudThemeLibrary/plugins/cropperjs/cropper.css",
-    "_content/MudThemeLibrary/css/app.css",
+    "_content/MudBlazor/MudBlazor.min.css",
     "_content/MudThemeLibrary/css/spacing.css",
+    "_content/MudThemeLibrary/css/app.css",
 ];
 
 // Tải các file CSS theo thứ tự
