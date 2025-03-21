@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "GameApp",
   "resources": {
-    "hash": "sha256-YTl0yXTc4Q6FeS1VLGB9uXtohVsHmuvM6ckBIPK/JxY=",
+    "hash": "sha256-/U/jhsSuPJv0sWK5E69TWPAnc429vtGSLbJi3CmxA0M=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-DTUQS6Jc6BNnS7sYYezFfaUKVmQq0/lanhQuJfygH/k="
     },
@@ -20,7 +20,7 @@
     "assembly": {
       "Blazored.LocalStorage.wasm": "sha256-OaMAAd5n7ORfyur5e3QIyEVKJ76MKIvwbg7/icnnYcU=",
       "CurrieTechnologies.Razor.SweetAlert2.wasm": "sha256-n6ubE26hJennNg6Gc9pr3BUMAuIS7CU4C94k2cw++m8=",
-      "GameApp.wasm": "sha256-HMssOZuN0LlrCYlggLc95qwj3/KuOsDw3QfZ893nt5g=",
+      "GameApp.wasm": "sha256-6JW4Hm04GvxrXarau6dkmVmi7DTL8JeFHgQD5CKx3K0=",
       "GameShare.wasm": "sha256-a4Hza9yXHgu3o1WfjdEWC/5mOmob823r1HghOKqvC3g=",
       "Microsoft.AspNetCore.Authorization.wasm": "sha256-R/3jcdg7Dy0CKQ/oI+3KyQBEiJZlpPMKxxC2qeeR7wU=",
       "Microsoft.AspNetCore.Components.Authorization.wasm": "sha256-oeOiDIwZnjYrsvG3rV00V9mhspdRjPXCGmam/Cwyi7E=",
