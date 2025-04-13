@@ -41,6 +41,14 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <!-- Nhúng js và css của MudThemeLibrary -->
     <script src="_content/MudThemeLibrary/js/scripts.bundle.js"></script>
+	
+	<script>
+		const redirectPath = sessionStorage.getItem('redirectPath');
+		if (redirectPath) {
+			sessionStorage.removeItem('redirectPath');
+			history.replaceState({}, '', redirectPath);
+		}
+	</script>
 </body>
 
 </html>
