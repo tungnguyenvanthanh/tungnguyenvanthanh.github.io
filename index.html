@@ -28,7 +28,7 @@
                 <circle r="40%" cx="50%" cy="50%" />
             </svg>
             <div class="loading-progress-text"></div>
-            <img src="/images/logo-splash.png" width="300" />
+            <img src="_content/MudThemeLibrary/images/logo-dark-ttvl.png" width="300" />
         </div>
     </div>
 
@@ -41,14 +41,15 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <!-- Nhúng js và css của MudThemeLibrary -->
     <script src="_content/MudThemeLibrary/js/scripts.bundle.js"></script>
-	
-	<script>
-		const redirectPath = sessionStorage.getItem('redirectPath');
-		if (redirectPath) {
-			sessionStorage.removeItem('redirectPath');
-			history.replaceState({}, '', redirectPath);
-		}
-	</script>
+
+    <!-- Nhúng js và css của MudThemeLibrary -->
+    <script>
+        const redirectPath = sessionStorage.getItem('redirectPath');
+        if (redirectPath) {
+            sessionStorage.removeItem('redirectPath');
+            history.replaceState({}, '', redirectPath);
+        }
+    </script>
 </body>
 
 </html>
