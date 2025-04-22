@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "GameApp",
   "resources": {
-    "hash": "sha256-S4nMRKxCJLqW0HqNyDRbyGo4s1oTdeLVFWHyZ7J+vgI=",
+    "hash": "sha256-yXz2Fqt93PyQIF8odF1jL+5EK0PS4L5+bwDa6H/TlNg=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-ftpNqtARtVNE8ku5eB/jXoklb41UQ+EutUHfwmbNTBY="
     },
@@ -62,7 +62,7 @@
       "Microsoft.Net.Http.Headers.wasm": "sha256-b59APrldqivzbOYVb0CV+lGgWn4HyUPjMa/cplEp2x8=",
       "MudBlazor.Markdown.wasm": "sha256-UdbXvLM+gdQBVfx3fgC5L/A2gO2rnkC6VAu0nyT7HHo=",
       "MudBlazor.wasm": "sha256-tGdGheMB8OwBu2EyC5lVyOLY39FSftsEocX5kYPrJRU=",
-      "MudThemeLibrary.wasm": "sha256-83SvCay9XtNjZn/nh6gYW1aquiGZ658DepHaPzsMxDg=",
+      "MudThemeLibrary.wasm": "sha256-2B6o8lDc3Z5sCEvQb4kN1vHWQFD8UyXqyKbIkySOsx4=",
       "netstandard.wasm": "sha256-ua9fsR7/PuIiBIhmxvFzmmVCMAaUv8R2aUxgfJ2mgYM=",
       "Newtonsoft.Json.wasm": "sha256-GlXMWKvDs45M2pACoR3Y4Qh8mcrOZGljqmvJY+6JZ5s=",
       "System.Buffers.wasm": "sha256-Uyty+IEc+iZVClzxmjYpZyelCoX/t1an0ednjPxjmZg=",
