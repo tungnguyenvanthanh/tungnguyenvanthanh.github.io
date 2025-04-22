@@ -1,27 +1,10 @@
-﻿export let Site = function () {
-    let initScrollEvent = (dotNetHelper) => {
-        window.onscroll = () => {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
-                dotNetHelper.invokeMethodAsync('ScrollLoadMore');
-            }
-        };
-    }
+﻿window.Site = function () {
 
-    let copyText = (element, dotNetHelper) => {
-        navigator.clipboard.writeText(element.innerText)
-            .then(() => {
-                dotNetHelper.invokeMethodAsync('OnCopyText', element.innerText);
-            })
-            .catch(err => console.error("Failed to copy text:", err));
+    let demo = () => {
+        console.log("TTVL")
     };
 
     return {
-        initScrollEvent: (dotNetHelper) => {
-            return initScrollEvent(dotNetHelper);
-        },
-
-        copyText: (element, dotNetHelper) => {
-            copyText(element, dotNetHelper);
-        }
+        demo
     };
 }();

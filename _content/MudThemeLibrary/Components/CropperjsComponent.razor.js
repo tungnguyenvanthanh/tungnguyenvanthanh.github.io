@@ -1,22 +1,28 @@
 ﻿export let Cropperjs = function () {
-    let dynamicCss = (href) => {
-        return new Promise((resolve, reject) => {
-            if (document.querySelector(`link[href="${href}"]`)) {
-                resolve(); // Nếu CSS đã được load thì không load lại
-                return;
-            }
 
-            let link = document.createElement("link");
-            link.rel = "stylesheet";
-            link.href = href;
-            link.onload = () => resolve();
-            link.onerror = () => reject(`Failed to load CSS: ${href}`);
+    const preload = async () => {
+        // Nếu đã có Promise đang chạy hoặc đã load xong thì dùng lại
+        if (window.__cropperjs_loaderPromise) return window.__cropperjs_loaderPromise;
 
-            document.head.appendChild(link);
-        });
-    }
+        // Tạo Promise duy nhất để mọi component đều chờ vào đây
+        window.__cropperjs_loaderPromise = (async () => {
+            await loadAsset({ type: "js", url: "_content/MudThemeLibrary/plugins/cropperjs/cropper.js", location: "body" });
+            await loadAsset({ type: "css", url: "_content/MudThemeLibrary/plugins/cropperjs/cropper.css", location: "before" });
+        })();
 
-    let init = (imageRef) => {
+        return window.__cropperjs_loaderPromise;
+    };
+
+    let waitCheck = async () => {
+        while (typeof window.Cropper === "undefined") {
+            await new Promise(resolve => setTimeout(resolve, 500));
+        }
+    };
+
+    let init = async (imageRef) => {
+
+        await waitCheck();
+
         let cropper = new Cropper(imageRef, {
             aspectRatio: 1,
             viewMode: 0,
@@ -48,28 +54,11 @@
     }
 
     return {
-        dynamicCss: (href) => {
-            dynamicCss(href);
-        },
-
-        init: (imageRef) => {
-            return init(imageRef);
-        },
-
-        croppedCanvas: (cropper) => {
-            return croppedCanvas(cropper);
-        },
-
-        rotate: (cropper, option) => {
-            return rotate(cropper, option);
-        },
-
-        scaleX: (cropper, option) => {
-            return scaleX(cropper, option);
-        },
-
-        scaleY: (cropper, option) => {
-            return scaleY(cropper, option);
-        }
+        preload,
+        init,
+        croppedCanvas,
+        rotate,
+        scaleX,
+        scaleY
     };
 }();

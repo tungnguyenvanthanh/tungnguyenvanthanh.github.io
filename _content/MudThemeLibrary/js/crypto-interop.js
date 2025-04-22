@@ -44,12 +44,7 @@
     }
 
     return {
-        encrypt: async (plainText, key) => {
-            return await encrypt(plainText, key);
-        },
-
-        decrypt: async (cipherText, key) => {
-            return await decrypt(cipherText, key);
-        }
+        encrypt,
+        decrypt
     };
 }();

@@ -1,4 +1,4 @@
-﻿export let Site = function () {
+﻿window.MudThemeLibrary = function () {
     let initScrollEvent = (dotNetHelper) => {
         window.onscroll = () => {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
@@ -16,12 +16,7 @@
     };
 
     return {
-        initScrollEvent: (dotNetHelper) => {
-            return initScrollEvent(dotNetHelper);
-        },
-
-        copyText: (element, dotNetHelper) => {
-            copyText(element, dotNetHelper);
-        }
+        initScrollEvent,
+        copyText
     };
 }();
