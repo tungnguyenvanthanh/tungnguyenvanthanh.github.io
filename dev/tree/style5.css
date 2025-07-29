@@ -3,7 +3,6 @@
 }
 .left .hv-wrapper .hv-item {
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
 }
 .left .hv-wrapper .hv-item .hv-item-parent {
@@ -66,7 +65,7 @@
 }
 .right .hv-wrapper .hv-item {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: center;
 }
 .right .hv-wrapper .hv-item .hv-item-parent {
